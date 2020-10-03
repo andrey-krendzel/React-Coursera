@@ -1,0 +1,18 @@
+ <Menu dishes={this.state.dishes} onClick={(dishId) => this.onDishSelect(dishId)}/>
+        <DishDetail dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]}  />
+
+        <RenderComments comments={props.dish.comments} />
+
+        onClick={() => onClick(dish.id)}
+
+                <Menu dishes={this.state.dishes} onClick={(dishId) => this.onDishSelect(dishId)} />
+        <DishDetail dish={this.state.dishes.filter((dish) => dish.id === this.state.selectedDish)[0]}  />
+
+
+        const eachComment = comments.slice(0,5).map((comment) => {
+      return(
+        <li>{comment.comment}
+        <br /><br />
+        -- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
+        <br /><br /></li>
+      )})

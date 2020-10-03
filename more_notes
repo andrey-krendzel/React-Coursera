@@ -1,0 +1,34 @@
+<RenderComments comments={props.dish.comments}  />
+
+
+RenderComments backup:
+
+  function RenderComments({comments, addComment, dishId}){
+   
+    const eachComment = comments.slice(0,5).map((comment) => {
+      return(
+        <li>{comment.comment}
+        <br /><br />
+        -- {comment.author}, {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}
+        <br /><br /></li>
+      )})
+
+    return(
+      <div>
+      <h4><b>Comments</b></h4>
+      <ul class="list-unstyled">
+        {eachComment}
+      </ul>
+      <CommentForm />
+      </div>
+    )
+    
+    }
+
+
+        <DishDetail dish={this.props.dishes.filter((dish) => dish.id === parseInt(match.params.dishId,10))[0]}
+        comments={this.props.comments.filter((comment) => comment.dishId === parseInt(match.params.dishId,10))}
+        addComment={this.props.addComment}
+      />
+
+      
